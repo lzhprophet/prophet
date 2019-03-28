@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.web.business.apistatis.mapper.ApiStatisMapper" >
+
+	<select id="selectWeekApiList"  resultType="com.prophet.web.business.apistatis.entity.ApiStatisEntity">
+		SELECT  pcode,a.statis_time,sum(a.api_count) apiWeekCount  from base_statis_result a  
+		 WHERE  ((YEARWEEK(NOW(),1)-1) - YEARWEEK(statis_time,1) = 0 or (YEARWEEK(NOW(),1)-1) - YEARWEEK(statis_time,1) = 48)
+	  GROUP BY  pcode,statis_time 
+	</select>
+ 	
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.web.business.metadata.mapper.ProductMapper" >
+
+
+	<select id="list"  resultType="com.prophet.web.business.metadata.entity.ProductEntity">
+		SELECT  id ,product_code,product_name,product_admin,product_secret,product_desc,create_user,DATE_FORMAT(create_time,"%Y-%m-%d") createTime
+	  	  FROM  product 
+	</select>
+	
+	<insert id="save" parameterType="com.prophet.web.business.metadata.entity.ProductEntity">
+ 		INSERT INTO product(product_code,product_name,product_admin,product_secret,product_desc) 
+ 		VALUES(#{productCode}, #{productName}, #{productAdmin},#{productSecret},#{productDesc})
+ 	</insert>
+ 
+ 	<select id="dict"  resultType="com.prophet.web.business.common.entity.Dict">
+		SELECT  id,product_code dictValue,product_name dictName
+	  	  FROM  product  order by product_code 
+	</select>
+ 
+</mapper>

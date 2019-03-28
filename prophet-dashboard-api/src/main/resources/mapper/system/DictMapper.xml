@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.web.system.dict.mapper.DictMapper" >
+
+	<sql id="base_column_list" >
+    	 id, dict_code dictCode, dict_key dictKey, dict_value dictValue, dict_name dictName, dict_desc dictDesc
+    	 , delete_flag deleteFlag, update_user updateUser, update_time updateTime, create_user createUser, create_time createTime
+	</sql>
+
+	<select id="queryList"  resultType="com.prophet.web.system.dict.entity.DictEntity" parameterType="string">
+		SELECT <include refid="base_column_list"/> FROM sys_dict 
+		<where>
+			 delete_flag = 1
+			<if test="_parameter !=null and _parameter !=''">
+				and dict_key = #{value} 
+			</if>
+		</where>
+		
+	</select>
+ 	
+ 	
+
+</mapper>

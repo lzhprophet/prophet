@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.web.business.basestatis.mapper.BaseStatisMapper" >
+
+
+	<select id="selectBaseStatis"  resultType="com.prophet.web.business.basestatis.entity.BaseStatisEntity">
+		SELECT  sum(ip_count) ipCount,sum(uv_count) uvCount,sum(api_count) apiCount,sum(new_user_count) newUserCount,statis_time pday 
+	  	  FROM  base_statis_result 
+	  	 WHERE statis_time = DATE_FORMAT(date_sub(NOW(),interval 1 day) ,'%Y-%m-%d')
+	</select>
+	
+	
+	<select id="avgAndMixBaseStatis"  resultType="com.prophet.web.business.basestatis.entity.BaseStatisEntity" parameterType="string">
+		SELECT  max(ip_count) maxIp,max(uv_count) maxUv,max(api_count) maxApi,max(new_user_count) maxNu,
+				ROUND(avg(ip_count)) avgIp,ROUND(avg(uv_count)) avgUv,ROUND(avg(api_count)) avgApi,ROUND(avg(new_user_count)) avgNu
+	  	  FROM  base_statis_result 
+	  	 WHERE  pcode=#{productName}  
+	</select>
+	
+	<select id="selectBaseStatisByPcode"  resultType="com.prophet.web.business.basestatis.entity.BaseStatisEntity" parameterType="string">
+		SELECT  sum(ip_count) ipCount,sum(uv_count) uvCount,sum(api_count) apiCount,sum(new_user_count) newUserCount,statis_time pday 
+	  	  FROM  base_statis_result 
+	  	 WHERE statis_time = DATE_FORMAT(date_sub(NOW(),interval 1 day) ,'%Y-%m-%d') and pcode=#{productName}  
+	</select>
+ 	
+ 	<select id="selectTimesoleBaseStatisInfo"  resultType="com.prophet.web.business.basestatis.entity.BaseStatisEntity" parameterType="string">
+		SELECT  a.time_slot timeSlot,IFNULL(b.pcode,#{productName}) pcode,IFNULL(b.uv_count,0) uvCount,IFNULL(b.ip_count,0) ipCount,
+				IFNULL(b.api_count,0)  apiCount,IFNULL(b.new_user_count,0)  newUserCount,
+				IFNULL(b.statis_time,DATE_FORMAT( date_sub( NOW( ), INTERVAL 1 DAY ), '%Y-%m-%d' ))  pday
+		FROM  time_slot_utils a
+		LEFT JOIN  
+		(SELECT *  FROM base_statis_result_timeslot WHERE statis_time = DATE_FORMAT(date_sub(NOW(),interval 1 day) ,'%Y-%m-%d') 
+		and pcode=#{productName})  b 
+		on a.time_slot = b.time_slot  order by  a.time_slot asc
+	</select>
+ 	
+</mapper>

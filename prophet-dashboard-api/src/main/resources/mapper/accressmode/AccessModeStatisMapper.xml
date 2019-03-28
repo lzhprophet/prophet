@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.web.business.accressmode.mapper.AccessModeStatisMapper" >
+
+	<select id="selectAccessModeLegendList"  resultType="string">
+		SELECT access_mode  FROM access_mode_statis_result  GROUP BY access_mode
+	</select>
+	
+	
+	<select id="selectAccessModeStatisList"  resultType="com.prophet.web.business.accressmode.entity.AccessModeStatisEntity" >
+	  	 SELECT a.pcode,IFNULL(b.am_count,0) amCount, a.access_mode,
+	  	 		IFNULL(b.statis_time, DATE_FORMAT(date_sub(NOW(),interval 1 day) ,'%Y-%m-%d'))  AS pday 
+	  	   FROM access_mode_utils a 
+	  INNER JOIN product p ON p.product_code = a.pcode 
+	  LEFT JOIN 
+		(SELECT *  FROM access_mode_statis_result b  WHERE b.statis_time = DATE_FORMAT(date_sub(NOW(),interval 1 day) ,'%Y-%m-%d'))  b
+			 ON a.access_mode = b.access_mode and a.pcode = b.pcode 
+	  	 order by a.pcode
+	</select>
+	
+
+ 	
+</mapper>

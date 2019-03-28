@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+	<properties resource="application-dev.properties" />
+
+	<context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<!-- 生成的文件编码 -->
+		<property name="javaFileEncoding" value="utf-8" />
+		<property name="javaFileEncoding" value="utf-8" />
+		<!-- 集成通用Mapper -->
+		<!-- <plugin type="tk.mybatis.mapper.generator.MapperPlugin"> -->
+		<!-- <property name="mappers" value="com.xe.demo.common.dao.MyMapper" /> -->
+		<!-- </plugin> -->
+		<!-- 生成注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库连接属性 -->
+		<jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+			connectionURL="${spring.datasource.url}" userId="${spring.datasource.username}"
+			password="${spring.datasource.password}" />
+		<!-- 生成实体类配置 -->
+		<javaModelGenerator targetPackage="com.mybatis"
+			targetProject="src/test/java" />
+		<!-- 生成映射文件配置 -->
+		<sqlMapGenerator targetPackage="tempmapper"
+			targetProject="src/test/java" />
+		<!-- 生成映射接口配置 -->
+		<javaClientGenerator targetPackage="com.mybatis"
+			targetProject="src/test/java" type="XMLMAPPER" />
+
+
+	</context>
+</generatorConfiguration>
