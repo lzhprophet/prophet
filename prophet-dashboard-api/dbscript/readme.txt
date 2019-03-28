@@ -1,0 +1,1 @@
+﻿创建一个数据库prophet，然后执行prophet-mysql.sql
