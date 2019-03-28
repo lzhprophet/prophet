@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.data.etl.load.EasrBaseStatisLoadOutMysqlRepository" >
+
+	
+
+	<select id="isExist"  resultType="int" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+		SELECT count(1) FROM base_statis_result WHERE pcode =#{pcode} AND statis_time =#{pday}  
+	</select>
+ 	
+ 	<insert id="insertBaseStatis" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+ 		INSERT INTO base_statis_result(pcode,ip_count,uv_count,api_count,new_user_count,statis_time) 
+ 		VALUES(#{pcode}, #{ipCount}, #{uvCount},#{apiCount},#{newUserCount}, #{pday})
+ 	</insert>
+ 	
+ 	<update id="updateBaseStatis" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+		UPDATE base_statis_result 
+		   SET ip_count = #{ipCount} ,uv_count = #{uvCount} ,api_count = #{apiCount} ,new_user_count = #{newUserCount} 
+		WHERE pcode = #{pcode} AND statis_time = #{pday}
+	</update>
+	
+	<select id="isExistByTimeslot"  resultType="int" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+		SELECT count(1) FROM base_statis_result_timeslot WHERE pcode =#{pcode} AND statis_time =#{pday}  and time_slot=#{timeslot}
+	</select>
+ 	
+ 	<insert id="insertBaseStatisByTimeslot" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+ 		INSERT INTO base_statis_result_timeslot(pcode,ip_count,uv_count,api_count,new_user_count,time_slot,statis_time) 
+ 		VALUES(#{pcode}, #{ipCount}, #{uvCount},#{apiCount},#{newUserCount},#{timeslot}, #{pday})
+ 	</insert>
+ 	
+ 	<update id="updateBaseStatisByTimeslot" parameterType="com.prophet.data.etl.model.BaseStatisBean">
+		UPDATE base_statis_result_timeslot 
+		   SET ip_count = #{ipCount} ,uv_count = #{uvCount} ,api_count = #{apiCount} ,new_user_count = #{newUserCount} 
+		WHERE pcode = #{pcode} AND statis_time = #{pday} and time_slot=#{timeslot}
+	</update>
+
+</mapper>

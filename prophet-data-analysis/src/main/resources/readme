@@ -1,0 +1,4 @@
+hiveserver 启动
+nohup bin/hiveserver2  1>/dev/null 2>&1  &  
+
+beeline> !connect jdbc:hive2://IT-00023:10000

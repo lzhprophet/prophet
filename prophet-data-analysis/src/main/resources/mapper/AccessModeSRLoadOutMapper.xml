@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.prophet.data.etl.load.EasrAccessModeSRLoadOutMysqlRepository" >
+
+	
+
+	<select id="isExist"  resultType="int" parameterType="com.prophet.data.etl.model.AccessModeSRBean">
+		SELECT count(1) FROM access_mode_statis_result WHERE pcode =#{pcode} AND access_mode = #{accessMode}  AND statis_time =#{pday}  
+	</select>
+ 	
+ 	<insert id="insertAccressModeResult" parameterType="com.prophet.data.etl.model.AccessModeSRBean">
+ 		INSERT INTO access_mode_statis_result(pcode,access_mode,am_count,statis_time) 
+ 		VALUES(#{pcode}, #{accessMode}, #{amCount}, #{pday})
+ 	</insert>
+ 	
+ 	<update id="updateAccressModeResult" parameterType="com.prophet.data.etl.model.AccessModeSRBean">
+		UPDATE access_mode_statis_result 
+		   SET access_mode = #{accessMode} ,am_count = #{amCount} 
+		WHERE pcode = #{pcode} AND access_mode = #{accessMode}  AND statis_time = #{pday}
+	</update>
+	
+
+</mapper>
