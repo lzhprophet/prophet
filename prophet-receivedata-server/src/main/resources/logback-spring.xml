@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <contextName>prophet-receivedata-server</contextName>
+	<springProperty scope="context" name="log.name" source="log.name"/>
+	<springProperty scope="context" name="log.base" source="log.path"/>
+	<jmxConfigurator />
+		<!-- 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%-5level [%contextName] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger{10}.%method: %msg%n</pattern>
+		</encoder> 
+	</appender>
+	
+	<!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${log.base}/${log.name}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"><!-- rollover daily -->
+			<FileNamePattern>${log.base}/${log.name}-log-%d{yyyy-MM-dd}.%i.zip</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+				<maxFileSize>20MB</maxFileSize><!-- or whenever the file size reaches 20MB -->
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<Pattern>%-5level [%contextName] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger{10}.%method: %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">	
+		<File>${log.base}/${log.name}-err.log</File>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${log.base}/${log.name}-err-%d{yyyy-MM-dd}.%i.zip</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+				<maxFileSize>20MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<Pattern>%-5level [%contextName] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger.%method: %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+
+    
+    <springProfile name="dev">
+    	<root level="INFO">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE" />
+            <appender-ref ref="FILE-ERROR" />
+        </root>
+	</springProfile>
+	
+	<springProfile name="test">
+    	<root level="INFO">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="FILE-ERROR" />
+        </root>
+	</springProfile>
+	
+	<springProfile name="pro">
+    	<root level="INFO">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="FILE-ERROR" />
+        </root>
+	</springProfile>
+
+ </configuration>
