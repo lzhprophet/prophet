@@ -1,12 +1,6 @@
-一. 关于Prophet
-二. 系统结构
-三. 运行环境搭建
-四. 运行Prophet
-五. 接入第一个项目
-六. JSSDK使用
-七. SDK使用
-八. 系统说明
+这个项目运行环境有点复杂，后续慢慢的减少使用的中间件，优化部署方式
 
-Prophet项目的开源QQ交流群号:808833989  欢迎您的加入。 Prophet项目github开源代码: https://github.com/lzhprophet/prophet
+查看wiki更多内容
 
-
+版本：
+2019-03-15  prophet-1.0.0
