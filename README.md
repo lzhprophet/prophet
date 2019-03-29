@@ -12,9 +12,11 @@ Prophet项目的开源QQ交流群号:808833989 欢迎您的加入。
 #### 数据可视化部分功能截图
 
 ![blockchain](http://easr.panhaidata.com/images/1.png "dashboard")
+![blockchain](http://easr.panhaidata.com/images/2.png "dashboard")
 
 #### 元数据管理部分功能截图
-
+![blockchain](http://easr.panhaidata.com/images/3.png "dashboard")
+![blockchain](http://easr.panhaidata.com/images/4.png "dashboard")
 
 
 
