@@ -6,7 +6,7 @@ create external table IF NOT EXISTS easr_clean_data
 (project_code string ,project_version string,lib string,ip string,user_id string,event string,url_path string,
 device_id string,rt string,time_slot string,track_time string)
 PARTITIONED BY(cleanday string)
-row format delimited fields terminated by '\t' location '/easr/data/out/cleandata';
+row format delimited fields terminated by '\t' location '/prophet/data/out/cleandata';
 
 
 ---基础数据表

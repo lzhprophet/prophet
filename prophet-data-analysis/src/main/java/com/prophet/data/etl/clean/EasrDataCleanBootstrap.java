@@ -45,15 +45,15 @@ public class EasrDataCleanBootstrap {
 		job.setMapperClass(EasrDataCleanMapper.class);
 		
 		
-		Path output = new Path("/easr/data/out/cleandata/"+day);
-		//Path output = new Path("/easr/data/out/clean"+DateUtils.getNowDate("yyyyMMdd"));
+		Path output = new Path("/prophet/data/out/cleandata/"+day);
+		//Path output = new Path("/prophet/data/out/clean"+DateUtils.getNowDate("yyyyMMdd"));
 		FileSystem fs = FileSystem.get(new URI(sc.hdfsNameNode), ec.getConfiguration(),sc.hadoopUsername);
 		if (fs.exists(output)) {
 			fs.delete(output, true);
 		}
 
 		// 4、封装参数：本次job要处理的输入数据集所在路径、最终结果的输出路径
-		FileInputFormat.setInputPaths(job, new Path("/easr/data/input/"+day+".log"));
+		FileInputFormat.setInputPaths(job, new Path("/prophet/demo/"+day+".log"));
 		FileOutputFormat.setOutputPath(job, output); // 注意：输出路径必须不存在
 		// 不输出默认文件
 		LazyOutputFormat.setOutputFormatClass(job, TextOutputFormat.class);
