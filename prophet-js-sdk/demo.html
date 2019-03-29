@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Easr</title>
+
+   <script>
+       (function(para) {
+           var n = para.name;
+           window['easr201901'] = n;
+           window[n] = {
+               _q: [],
+               _t: 1 * new Date(),
+               para: para
+           };
+       })({
+           name: 'easr',
+           show_log:true,
+           teancy_code:'panhaidata',
+           project_code:'easrdev',
+           project_model_code:'web',
+           is_track_device_id:true,
+           use_client_time:true
+       });
+
+
+    </script>
+
+    <script src="release/prophet.full_v1.3.0.js"></script>
+    <script>
+        // 2. 跟踪pv，pv的来源，pv的页面url和首次来源等这些常用功能
+        prophet.quick('autoTrack');
+        prophet.login("dddd");
+        prophet.setLoginUserName("laowang");
+        prophet.track('ajax',{path:location.pathname,position:'头部'});
+
+    </script>
+
+</head>
+<body>
+<h1>hello easr !</h1>
+<a href="welcome.html">跳转</a>
+<button>提交</button>
+</body>
+</html>
