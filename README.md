@@ -32,14 +32,14 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 
 #### 系统工程说明
 
-+prophet-dashboard-api：数据可视化&Prophet平台管理后端接口程序
-+prophet-dashboard-ui：数据可视化&Prophet平台管理WEB-UI
-+prophet-data-analysis：ETL及数据统计分析程序
-+prophet-hadoop-script：数据模型创建脚本&hadoop等组件配置文件
-+prophet-js-sdk：web项目埋点数据采集jssdk
-+prophet-weixin-sdk：微信小程序项目埋点数据采集wxsdk (开发中)
-+prophet-receivedata-server：数据收集服务接口
-+prophet-pom：父pom
++ prophet-dashboard-api：数据可视化&Prophet平台管理后端接口程序
++ prophet-dashboard-ui：数据可视化&Prophet平台管理WEB-UI
++ prophet-data-analysis：ETL及数据统计分析程序
++ prophet-hadoop-script：数据模型创建脚本&hadoop等组件配置文件
++ prophet-js-sdk：web项目埋点数据采集jssdk
++ prophet-weixin-sdk：微信小程序项目埋点数据采集wxsdk (开发中)
++ prophet-receivedata-server：数据收集服务接口
++ prophet-pom：父pom
 
 
 
