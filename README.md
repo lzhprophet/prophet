@@ -27,7 +27,7 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 
 
 ## 系统结构
-
+![blockchain](http://easr.panhaidata.com/images/5.png "architecture")
 
 
 
