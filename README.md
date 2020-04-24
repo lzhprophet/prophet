@@ -14,13 +14,13 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 
 #### 数据可视化部分功能截图
 
-![blockchain](http://easr.panhaidata.com/images/1.png "dashboard")
+![blockchain](https://github.com/lzhprophet/prophet/blob/master/1.png "dashboard")
 
-![blockchain](http://easr.panhaidata.com/images/2.png "dashboard")
+![blockchain](https://github.com/lzhprophet/prophet/blob/master/2.png "dashboard")
 
 #### 元数据管理部分功能截图
-![blockchain](http://easr.panhaidata.com/images/3.png "dashboard")
-![blockchain](http://easr.panhaidata.com/images/4.png "dashboard")
+![blockchain](https://github.com/lzhprophet/prophet/blob/master/3.png "dashboard")
+![blockchain](https://github.com/lzhprophet/prophet/blob/master/4.png "dashboard")
 
 
 
