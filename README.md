@@ -29,7 +29,7 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 ## 系统结构
 #### 数据处理过程
 
-[![JDnrkR.th.png](https://s1.ax1x.com/2020/04/24/JDnrkR.th.png)](https://imgchr.com/i/JDnrkR)
+[![JDnrkR.png](https://s1.ax1x.com/2020/04/24/JDnrkR.png)](https://imgchr.com/i/JDnrkR)
 
 #### 系统工程说明
 
