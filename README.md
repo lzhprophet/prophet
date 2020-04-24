@@ -13,7 +13,6 @@ Prophet是一个大数据分析平台，支持多项目接入。是一个面向�
 Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户触发的事件数据发送到数据收集接口，通过高性能的消息队列（kakfa），及数据处理管道组件（logstash），将数据转换存储至HDFS。每日定时通过数据分析模块对海量数据进行计算，获得三个主题相关维度的统计分析结果，通过Prophet-dashboard数据可视化系统进行展现。
 
 #### 数据可视化部分功能截图
-
 ![blockchain](https://s1.ax1x.com/2020/04/24/JDeb5t.png "dashboard")
 
 
@@ -22,14 +21,15 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 #### 元数据管理部分功能截图
 [![JDmSbj.png](https://s1.ax1x.com/2020/04/24/JDmSbj.png)](https://imgchr.com/i/JDmSbj)
 [![JDezrQ.png](https://s1.ax1x.com/2020/04/24/JDezrQ.png)](https://imgchr.com/i/JDezrQ)
-
+[![JDexKg.png](https://s1.ax1x.com/2020/04/24/JDexKg.png)](https://imgchr.com/i/JDexKg)
 
 
 
 
 ## 系统结构
 #### 数据处理过程
-[![JDexKg.png](https://s1.ax1x.com/2020/04/24/JDexKg.png)](https://imgchr.com/i/JDexKg)
+
+[![JDnrkR.th.png](https://s1.ax1x.com/2020/04/24/JDnrkR.th.png)](https://imgchr.com/i/JDnrkR)
 
 #### 系统工程说明
 
