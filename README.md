@@ -14,13 +14,14 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 
 #### 数据可视化部分功能截图
 
-![blockchain](https://github.com/lzhprophet/prophet/blob/master/1.png "dashboard")
+![blockchain](https://s1.ax1x.com/2020/04/24/JDeb5t.png "dashboard")
 
-![blockchain](https://github.com/lzhprophet/prophet/blob/master/2.png "dashboard")
+
+
 
 #### 元数据管理部分功能截图
-![blockchain](https://github.com/lzhprophet/prophet/blob/master/3.png "dashboard")
-![blockchain](https://github.com/lzhprophet/prophet/blob/master/4.png "dashboard")
+[![JDmSbj.png](https://s1.ax1x.com/2020/04/24/JDmSbj.png)](https://imgchr.com/i/JDmSbj)
+[![JDezrQ.png](https://s1.ax1x.com/2020/04/24/JDezrQ.png)](https://imgchr.com/i/JDezrQ)
 
 
 
@@ -28,7 +29,7 @@ Prophet通过前端SDK在接入系统中进行手动数据埋点实时将用户�
 
 ## 系统结构
 #### 数据处理过程
-![blockchain](http://easr.panhaidata.com/images/5.png "architecture")
+[![JDexKg.png](https://s1.ax1x.com/2020/04/24/JDexKg.png)](https://imgchr.com/i/JDexKg)
 
 #### 系统工程说明
 
